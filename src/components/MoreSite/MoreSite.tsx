@@ -59,7 +59,6 @@ const MoreSite:React.FC = () => {
           if(item.url !== ''){
             return <Site name={item.name} url={item.url} key={Math.random()*10} responseRemove={responseRemove}/>
           }
-          console.log(item.url);
         })
       }
 
