@@ -1,8 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { SearchOutlined } from '@ant-design/icons'
 
 const SearchBar = styled.form`
-  
+  position: relative;
+  >input {
+    width: 561px;
+    height: 44px;
+    padding: 0px 50px;
+    border: none;
+    border-radius: 22px;
+    font-size: 17px;
+    outline: none;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+  }
+  >button {
+    display: none;
+  }
+`;
+
+const MySearchOutlined = styled(SearchOutlined)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  font-size: 19px;
+  color: gray;
 `;
 
 const Search: React.FC = () => {
@@ -37,13 +60,13 @@ const Search: React.FC = () => {
   // todo 这里以后应该要支持自定义搜索引擎
   const handleClick = () => {
     const result = value.split(' ');
-    if (result[0] === ':gg') {
+    if (result[0] === ':gg' || result[0] === '：gg') {
       setEngin({
         action: 'https://www.google.com/search',
         name: 'q'
       });
       setValue(result.slice(1).join(' '));
-    } else if (result[0] === ':bd') {
+    } else if (result[0] === ':bd' || result[0] === '：bd') {
       setEngin({
         action: 'https://www.baidu.com/s',
         name: 'wd'
@@ -56,10 +79,30 @@ const Search: React.FC = () => {
     setValue(e.target.value);
   };
 
+  // 处理引擎名字
+  const handleName = (name:string) => {
+    return name.replace('https://', '')
+        .replace('http://', '')
+        .replace('www.', '')
+        .replace('.com', '')
+        .replace(/\/.*/, '');
+  };
+
   return (
     <>
       <SearchBar action={engin.action} method="GET" target="_blank" name="searchForm">
-        <input type="text" name={engin.name} value={value} onChange={handleChange} />
+        <MySearchOutlined />
+        <input 
+        type="text" 
+        name={engin.name} 
+        value={value} 
+        onChange={handleChange} 
+        autoComplete="off"
+        autoFocus={true}
+        spellCheck="false"
+        placeholder={`在 ${handleName(engin.action)} 上搜索，或者使用 :xx 切换引擎`}
+        />
+
         <button type="submit" onClick={handleClick}>搜索</button>
       </SearchBar>
     </>
