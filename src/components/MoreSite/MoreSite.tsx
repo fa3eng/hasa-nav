@@ -14,13 +14,18 @@ const MoreSite:React.FC = () => {
 
   // 持久化处理
   const localStorage = window.localStorage;
+  // 初次进入, 进行初始化
   if(!localStorage.getItem('siteList')){
     localStorage.setItem('siteList', JSON.stringify(
       [
         {
-          name: '',
-          url: ''
-        }
+          name: '方阿森的Blog',
+          url: 'https://meakle.com'
+        },
+        {
+          name: 'React',
+          url: 'https://reactjs.org/'
+        },
       ]
     ));
   }

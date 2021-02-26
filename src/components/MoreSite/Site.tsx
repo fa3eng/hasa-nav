@@ -1,4 +1,4 @@
-import { CloseOutlined, MoreOutlined } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -50,8 +50,11 @@ const Menu = styled.span`
   top: 3px;
   right: 10px;
   z-index: 2;
+  transition: all .5s;
   &:hover{
+    transition: all .5s;
     cursor: default;
+    color: #fd8196;
   };
 `;
 
