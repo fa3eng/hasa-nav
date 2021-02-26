@@ -5,3 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#root {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
