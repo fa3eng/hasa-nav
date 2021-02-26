@@ -23,9 +23,57 @@ const MoreSite:React.FC = () => {
           url: 'https://meakle.com'
         },
         {
+          name: 'MDN',
+          url: 'https://developer.mozilla.org/en-US/'
+        },
+        {
+          name: 'Vue',
+          url: 'https://vuejs.org/index.html'
+        },
+        {
           name: 'React',
           url: 'https://reactjs.org/'
         },
+        {
+          name: 'NodeJs',
+          url: 'http://nodejs.cn/'
+        },
+        {
+          name: 'Typescript',
+          url: 'https://www.typescriptlang.org/'
+        },
+        {
+          name: 'webpack',
+          url: 'https://webpack.js.org/'
+        },
+        {
+          name: 'babel',
+          url: 'https://babeljs.io/'
+        },
+        {
+          name: 'styled-components',
+          url: 'https://styled-components.com/'
+        },
+        {
+          name: 'Ant Design',
+          url: 'https://ant.design/index-cn'
+        },
+        {
+          name: 'Stack Overflow',
+          url: 'https://stackoverflow.com/'
+        },
+        {
+          name: 'Yarn',
+          url: 'https://yarnpkg.com/'
+        },
+        {
+          name: 'npm',
+          url: 'https://www.npmjs.com/'
+        },
+        {
+          name: '印记中文',
+          url: 'https://docschina.org/'
+        }
       ]
     ));
   }

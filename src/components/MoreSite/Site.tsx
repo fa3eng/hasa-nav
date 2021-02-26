@@ -107,9 +107,15 @@ const MoreSite:React.FC<Props> = (props) => {
       }
       <LogoWrapper>
         {/* 这里可能还需要做一些检查, 防止没有找到favicon */}
-        <img src={`${props.url}/favicon.ico`} alt=""/>
+        {/* https://ico.mikelin.cn/https://baidu.com */}
+        {/* https://www.google.com/s2/favicons?sz=64&domain_url=google.com */}
+        <img src={`https://www.google.com/s2/favicons?sz=128&domain_url=${props.url}`} alt=""/>
       </LogoWrapper>
-      <Title>{props.name}</Title>
+      <Title>
+        {
+          props.name.length >= 13 ? props.name.split('').slice(0, 11).join('') + '...' : props.name
+        }
+      </Title>
     </SiteWrapper>
   );
 }
