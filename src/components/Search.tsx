@@ -58,7 +58,7 @@ const Search: React.FC = () => {
 
   // 切换搜索引擎
   // todo 这里以后应该要支持自定义搜索引擎
-  const handleClick = () => {
+  const handleClick = (e:React.MouseEvent) => {
     const result = value.split(' ');
     if (result[0] === ':gg' || result[0] === '：gg') {
       setEngin({
@@ -66,13 +66,22 @@ const Search: React.FC = () => {
         name: 'q'
       });
       setValue(result.slice(1).join(' '));
+      if(result.slice(1).join(' ').trim() === ''){
+        e.preventDefault();
+      }
     } else if (result[0] === ':bd' || result[0] === '：bd') {
       setEngin({
         action: 'https://www.baidu.com/s',
         name: 'wd'
       });
       setValue(result.slice(1).join(' '));
-    }    
+      if(result.slice(1).join(' ').trim() === ''){
+        e.preventDefault();
+      }
+    } else if(value.trim() === ''){
+      e.preventDefault();
+    }
+    console.log(value.trim());
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +99,7 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <SearchBar action={engin.action} method="GET" target="_blank" name="searchForm">
+      <SearchBar action={engin.action} method="GET" name="searchForm">
         <MySearchOutlined />
         <input 
         type="text" 
