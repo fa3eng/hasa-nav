@@ -13,7 +13,9 @@ const SiteWrapper = styled.a`
   padding: 10px 0 3px 0;
   color: black;
   border-radius: 7px;
+  transition: all .3s;
   &:hover{
+    transition: all .3s;
     background-color: #e8e8e9;
     color: black;
   };
