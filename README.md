@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# Hasa-Nav
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+有一个导航
 
-## Available Scripts
+![有一个导航](./hasaNav.png)
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 关于
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+这个项目基于我之前写的一个[demo](https://github.com/Meakle/demo)，这个demo是用JQuery和原生混着写的，整体的功能和这个差不多，但是hasa-nav的细节会更加丰富一点，并且目前这个项目也没有完全做完，距离我的设想也有点遥远。不过千里之行始于足下，我会慢慢完善这个项目的。
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### 技术栈
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React
+* Styled-components
+* Typescript
+* LocalStoreage用于持久化数据
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## 特点
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+这个项目乍一看和Chrome的标签页很像（~~可以说是一模一样了hh~~）。实际在使用搜索框的时候我添加了一个功能。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 切换搜索引擎
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+相比较于平常用鼠标点选切换的操作属实慢，因此hasa-nav将切换功能放进了搜索框本身。当你在搜索框输入你想要的内容，在你按下回车，搜索内容传递给搜索引擎之前，会对内容做处理，如果你输入的内容是`:xx` 或者是`：xx`那么hasa-nav会将将它当成一个命令，然后根据命令搜索。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+看不懂没关系，下面的例子很清晰：
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+当你输入：
+
+```
+：bd
+```
+
+此时将会切换成百度作为搜索引擎。
+
+
+
+当你输入：
+
+```
+：gg
+```
+
+此时将会切换谷歌作为搜索引擎。
+
+
+
+当你输入：
+
+```
+：bd github
+```
+
+此时将会用百度搜索后面的内容，并且hasa-nav会记住这次的选择，也就是说当你下一次搜索的时候不用加任何命令，默认用百度进行搜索。
+
+
+
+基于这个逻辑，你可以在这个页面直接搜索b站上的视频，淘宝上的商品，（~~感谢Alfred提供给的想法hhh~~）。
+
+
+
+然而，我并不想写死，我希望这个功能是能给让用户自行定义的，所以....这种自定义功能我还没做。目前只有这两个。如果你想自己加，很简单，对着我的源码加一下就行了。
+
+
+
+## 关于未来
+
+* 自定义切换引擎
+* 添加一个新的命令用以开启一个新的完全没有东西的空白标签页（用这个页面你也可以方便的写点测试代码）
+* 优化添加新站点的体验
+* 更多自定义功能（背景图，毛玻璃那些七七八八的）
+* 网站快捷方式拖拽（目前来看，没啥头绪）
+* 以后想到啥就加啥
+
+
+
+## 本地使用
+
+```sh
+git clone https://github.com/Meakle/hasa-nav.git
+cd hasa-nav
+yarn install
+yarn start
+```
+
+
+
+
+
