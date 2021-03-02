@@ -17,7 +17,7 @@
 * React
 * Styled-components
 * Typescript
-* LocalStoreage用于持久化数据
+* localStorage用于持久化数据
 
 
 
